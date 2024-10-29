@@ -9,16 +9,20 @@ headers = {
     "x-nxopen-api-key": os.getenv("API_KEY")
 }
 
-# urlString = "https://open.api.nexon.com/maplestory/v1/id?" + characterName
-# urlString = "https://open.api.nexon.com/maplestory/v1/character/list?" + characterName
-# urlString = "https://open.api.nexon.com/maplestory/v1/character/basic?ocid=" + ocid
-# urlString = "https://open.api.nexon.com/maplestory/v1/character/item-equipment?ocid=" + ocid
+if (__name__ == "__main__") :
 
-'''
-response = requests.get(urlString, headers = headers)
+    characterName = os.getenv("Character_Name")
+    
+    urlString = "https://open.api.nexon.com/maplestory/v1/id?" + characterName
+    # urlString = "https://open.api.nexon.com/maplestory/v1/character/list?" + characterName
+    # urlString = "https://open.api.nexon.com/maplestory/v1/character/basic?ocid=" + ocid
+    # urlString = "https://open.api.nexon.com/maplestory/v1/character/item-equipment?ocid=" + ocid
 
-with open("out.json", "w", encoding='utf-8') as f :
-    json.dump(response.json(), f, ensure_ascii = False, indent = 4)
-'''
+    response = requests.get(urlString, headers = headers)
 
-print("Done")
+    with open("out.json", "w", encoding='utf-8') as f :
+        json.dump(response.json(), f, ensure_ascii = False, indent = 4)
+        
+    # print(response)
+    
+    print("Done")
